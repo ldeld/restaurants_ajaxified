@@ -1,0 +1,27 @@
+<h1>Restaurants</h1>
+
+<div class="flex-center mt-4" data-controller="counter">
+  <div class="counter">
+    <span data-target="counter.count"><%= @restaurant_count %></span>
+  </div>
+
+  <button class="btn btn-outline-secondary" data-action="click->counter#refresh">Refresh counter</button>
+</div>
+
+<div class="flex-center mt-4" data-controller="counter">
+  <div class="counter">
+    <span data-target="counter.count"><%= @restaurant_count %></span>
+  </div>
+
+  <button class="btn btn-outline-secondary" data-action="click->counter#refresh">Refresh counter</button>
+</div>
+
+
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <%= link_to restaurant.name, restaurant_path(restaurant) %>
+      <%= link_to 'Delete', restaurant_path(restaurant), method: :delete, remote: true %>
+      </li>
+  <% end %>
+</ul>
